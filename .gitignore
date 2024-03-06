@@ -9,3 +9,7 @@ node_modules
 .dev.vars
 /.wrangler
 wrangler.toml
+
+# Reason
+_opam
+_build
