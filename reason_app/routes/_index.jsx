@@ -1,6 +1,6 @@
 import { defer, Await, useLoaderData } from '@remix-run/react'
 import { Suspense } from 'react'
-import { MovieLink } from '../movie-link'
+import MovieLink  from '../MovieLink'
 
 export async function loader({ context: { env } }) {
   // use defer to unblock this DB query from the first byte

@@ -1,6 +1,6 @@
 (library
  (name app)
- (libraries routes)
+ (libraries reason-react routes)
  (melange.runtime_deps
   (glob_files *.js)
   (glob_files *.jsx)

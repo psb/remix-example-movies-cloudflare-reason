@@ -9,6 +9,7 @@ import {
 import { Search } from './routes/search'
 
 export default function App() {
+
   return (
     <html lang="en">
       <head>

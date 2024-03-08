@@ -1,7 +1,7 @@
 import { useFetcher, useLocation } from '@remix-run/react'
 import localforage from 'localforage'
 import { useEffect, useRef, useState } from 'react'
-import { MovieLink } from '../movie-link'
+import MovieLink from '../MovieLink'
 
 // Query the database on the server before the data is replicated to indexeddb
 export async function loader({ request, context: { env } }) {
@@ -12,7 +12,7 @@ export async function loader({ request, context: { env } }) {
 
   let query = await env.DB.prepare(
     `SELECT id, title, extract FROM movies WHERE id IN (
-      SELECT rowid FROM fts_movies WHERE fts_movies MATCH ?1 
+      SELECT rowid FROM fts_movies WHERE fts_movies MATCH ?1
     )
     LIMIT 20`,
   )
