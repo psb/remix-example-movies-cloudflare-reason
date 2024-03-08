@@ -9,8 +9,7 @@ import {
 import { Search } from './routes/search'
 
 export default function App() {
-  const error = useRouteError();
-  console.error(error);
+
   return (
     <html lang="en">
       <head>

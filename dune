@@ -12,12 +12,6 @@
 
 (dirs :standard \ node_modules)
 
-; (melange.emit
-;  (target output)
-;  (alias nextjs)
-;  (module_systems es6)
-;  (libraries app bindings api))
-
 ; (env
 ;  (dev
 ;   (flags
@@ -28,12 +22,6 @@
  (alias react)
  (libraries app)
  (module_systems es6))
-
-; (melange.emit
-;  (target node_output)
-;  (alias node)
-;  (libraries netlify)
-;  (module_systems es6))
 
 (rule
  (alias promote-app)
@@ -60,17 +48,3 @@
   (progn
    (bash "mkdir -p node_modules")
    (bash "cp -r output/node_modules/* node_modules"))))
-
-; (rule
-;  (alias promote-netlify)
-;  (mode
-;   (promote (until-clean)))
-;  (deps
-;   (alias_rec node))
-;  (targets
-;   (dir netlify))
-;  (action
-;   (progn
-;    (bash "mkdir -p netlify/functions")
-;    (bash "cp -r node_output/reason_netlify_functions/*.* netlify/functions/")
-;    (bash "cp -r node_output/node_modules netlify"))))
