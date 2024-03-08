@@ -24,42 +24,42 @@
 ;    (:standard -warn-error -69-32-26))))
 
 (melange.emit
- (target app_output)
+ (target output)
  (alias react)
  (libraries app)
  (module_systems es6))
 
-(melange.emit
- (target node_output)
- (alias node)
- (libraries netlify)
- (module_systems es6))
+; (melange.emit
+;  (target node_output)
+;  (alias node)
+;  (libraries netlify)
+;  (module_systems es6))
 
-(rule
- (alias promote-app)
- (mode
-  (promote (until-clean)))
- (deps
-  (alias_rec react))
- (targets
-  (dir src))
- (action
-  (progn
-   (bash "mkdir -p src/reason")
-   (bash "cp -r app_output/reason_app/components src/reason")
-   (bash "cp -r app_output/reason_app/bindings src/reason")
-   (bash "cp -r app_output/node_modules src/reason"))))
+; (rule
+;  (alias promote-app)
+;  (mode
+;   (promote (until-clean)))
+;  (deps
+;   (alias_rec react))
+;  (targets
+;   (dir src))
+;  (action
+;   (progn
+;    (bash "mkdir -p src/reason")
+;    (bash "cp -r app_output/reason_app/components src/reason")
+;    (bash "cp -r app_output/reason_app/bindings src/reason")
+;    (bash "cp -r app_output/node_modules src/reason"))))
 
-(rule
- (alias promote-netlify)
- (mode
-  (promote (until-clean)))
- (deps
-  (alias_rec node))
- (targets
-  (dir netlify))
- (action
-  (progn
-   (bash "mkdir -p netlify/functions")
-   (bash "cp -r node_output/reason_netlify_functions/*.* netlify/functions/")
-   (bash "cp -r node_output/node_modules netlify"))))
+; (rule
+;  (alias promote-netlify)
+;  (mode
+;   (promote (until-clean)))
+;  (deps
+;   (alias_rec node))
+;  (targets
+;   (dir netlify))
+;  (action
+;   (progn
+;    (bash "mkdir -p netlify/functions")
+;    (bash "cp -r node_output/reason_netlify_functions/*.* netlify/functions/")
+;    (bash "cp -r node_output/node_modules netlify"))))

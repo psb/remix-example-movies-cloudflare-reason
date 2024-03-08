@@ -16,7 +16,7 @@
     "init": "opam switch create . 5.1.1 -y && npm run install-opam-npm",
     "install-opam-npm": "npm install && npm run install-opam && npm run check-npm-deps",
     "dune": "opam exec -- dune",
-    "dune-build": "npm run dune -- build @react @node @promote-app @promote-netlify",
+    "dune-build": "npm run dune -- build @react",
     "dune-build-verbose": "npm run dune-build -- --verbose",
     "clean": "npm run dune -- clean",
     "clean-world": "npm run dune -- clean && npm run remove-folders",

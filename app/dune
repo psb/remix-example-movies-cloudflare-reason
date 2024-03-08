@@ -1,0 +1,10 @@
+(library
+ (name app)
+ (libraries routes)
+ (melange.runtime_deps
+  (glob_files *.js)
+  (glob_files *.jsx)
+  (glob_files *.tsx))
+ (modes melange)
+ (preprocess
+  (pps reason-react-ppx melange.ppx)))
