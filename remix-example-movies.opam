@@ -7,9 +7,9 @@ license: "MIT"
 homepage: "https://github.com/psb/remix-example-movies-cloudflare-reason"
 bug-reports: "https://github.com/psb/remix-example-movies-cloudflare-reason/issues"
 depends: [
-  "ocaml" {>= "5.1.0"}
-  "reason" {>= "3.10.0"}
+  "ocaml" {>= "5.1.1"}
   "dune" {>= "3.8"}
+  "reason" {>= "3.10.0"}
   "melange" {>= "3.0.0"}
   "reason-react" {>= "0.14.0"}
   "reason-react-ppx"
