@@ -35,20 +35,31 @@
 ;  (libraries netlify)
 ;  (module_systems es6))
 
-; (rule
-;  (alias promote-app)
-;  (mode
-;   (promote (until-clean)))
-;  (deps
-;   (alias_rec react))
-;  (targets
-;   (dir src))
-;  (action
-;   (progn
-;    (bash "mkdir -p src/reason")
-;    (bash "cp -r app_output/reason_app/components src/reason")
-;    (bash "cp -r app_output/reason_app/bindings src/reason")
-;    (bash "cp -r app_output/node_modules src/reason"))))
+(rule
+ (alias promote-app)
+ (mode
+  (promote (until-clean)))
+ (deps
+  (alias_rec react))
+ (targets
+  (dir app))
+ (action
+  (progn
+   (bash "mkdir -p app")
+   (bash "cp -r output/reason_app/* app"))))
+
+(rule
+ (alias promote-node-modules)
+ (mode
+  (promote (until-clean)))
+ (deps
+  (alias_rec react))
+ (targets
+  (dir node_modules))
+ (action
+  (progn
+   (bash "mkdir -p node_modules")
+   (bash "cp -r output/node_modules/* node_modules"))))
 
 ; (rule
 ;  (alias promote-netlify)
