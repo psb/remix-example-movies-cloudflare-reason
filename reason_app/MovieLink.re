@@ -1,6 +1,5 @@
 module Link = {
   [@mel.module "@remix-run/react"] [@react.component]
-  // ~className: string,
   external make:
     (
       ~_to: string,
@@ -30,7 +29,7 @@ type image;
 [@mel.set] external set_src: (image, string) => unit = "src";
 
 [@react.component]
-let default = (~movie: movie) => {
+let default = (~movie) => {
   let (prefetch, setPrefetch) = React.useState(() => "intent");
 
   let movieId = movie.id;
